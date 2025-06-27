@@ -1,14 +1,18 @@
 import { useTranslation } from "next-i18next";
-import { CSSProperties } from "react";
 
 interface EncounterTableP {
   battleLevel: number;
 }
 export default function EncounterTable({ battleLevel = 1 }: EncounterTableP) {
   const { t } = useTranslation("calculator");
-  const tableStyle: CSSProperties = {
+
+  const tableStyle = {
     textAlign: "center",
-  };
+  } as React.CSSProperties;
+
+  const thStyle = {
+    textWrap: "auto",
+  } as React.CSSProperties;
 
   return (
     <>
@@ -16,11 +20,11 @@ export default function EncounterTable({ battleLevel = 1 }: EncounterTableP) {
         <table style={tableStyle}>
           <thead>
             <tr>
-              <th>{t("monsterlevel")}</th>
-              <th>{t("standard", { mooks: 5 })}</th>
-              <th>{t("elite", { mooks: "7-8" })}</th>
-              <th>{t("large", { mooks: 10 })}</th>
-              <th>{t("huge", { mooks: 15 })}</th>
+              <th style={thStyle}>{t("monsterlevel")}</th>
+              <th style={thStyle}>{t("standard", { mooks: 5 })}</th>
+              <th style={thStyle}>{t("elite", { mooks: "7-8" })}</th>
+              <th style={thStyle}>{t("large", { mooks: 10 })}</th>
+              <th style={thStyle}>{t("huge", { mooks: 15 })}</th>
             </tr>
           </thead>
           <tbody>
